@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: anotherclass-521
-  labels:
-    istio-injection: enabled
-    part-of: istio-getting-started
-    managed-by: kubectl
