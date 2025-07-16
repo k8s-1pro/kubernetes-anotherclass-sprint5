@@ -12,7 +12,7 @@ spec:
     - matches:
         - headers:
             - name: end-user
-              value: jason
+              value: admin
       backendRefs:
         - name: reviews-v2
           port: 9080

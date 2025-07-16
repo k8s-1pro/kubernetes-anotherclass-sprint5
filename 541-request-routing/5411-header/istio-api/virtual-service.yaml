@@ -9,7 +9,7 @@ spec:
     - match:
         - headers:
             end-user:
-              exact: jason
+              exact: admin
       route:
         - destination:
             host: reviews
