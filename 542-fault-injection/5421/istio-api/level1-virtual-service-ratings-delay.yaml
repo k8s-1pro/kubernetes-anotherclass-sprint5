@@ -6,12 +6,20 @@ spec:
   hosts:
     - ratings
   http:
-    - fault:
+    - match:
+        - headers:
+            end-user:
+              exact: admin
+      fault:
         delay:
           percentage:
             value: 100.0
-          fixedDelay: 5s
+          fixedDelay: 4s
       route:
         - destination:
             host: ratings
             subset: v1
+    - route:
+      - destination:
+          host: ratings
+          subset: v1
