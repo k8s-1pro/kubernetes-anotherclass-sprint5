@@ -1,20 +1,16 @@
 apiVersion: networking.istio.io/v1
 kind: VirtualService
 metadata:
-  name: ratings-delay
+  name: level1-ratings-delay
 spec:
   hosts:
     - ratings
   http:
-    - match:
-        - headers:
-            end-user:
-              exact: admin
-      fault:
+    - fault:
         delay:
           percentage:
             value: 100.0
-          fixedDelay: 2s
+          fixedDelay: 5s
       route:
         - destination:
             host: ratings

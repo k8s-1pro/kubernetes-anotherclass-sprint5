@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1
 kind: DestinationRule
 metadata:
-  name: ratings-delay
+  name: level1-ratings
 spec:
   host: ratings
   subsets:
