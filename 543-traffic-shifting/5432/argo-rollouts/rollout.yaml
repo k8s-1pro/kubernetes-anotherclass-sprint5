@@ -11,11 +11,11 @@ spec:
       trafficRouting:
         istio:
           virtualService:
-            name: reviews
+            name: reviews-argo
             routes:
               - primary
           destinationRule:
-            name: reviews
+            name: reviews-argo
             canarySubsetName: canary
             stableSubsetName: stable
       steps:
