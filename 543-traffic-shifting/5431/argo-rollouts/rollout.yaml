@@ -26,10 +26,12 @@ spec:
   selector:
     matchLabels:
       app: reviews
+      version: v1
   template:
     metadata:
       labels:
         app: reviews
+        version: v1
     spec:
       serviceAccountName: bookinfo-reviews
       containers:
