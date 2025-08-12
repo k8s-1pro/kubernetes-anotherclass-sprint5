@@ -5,9 +5,9 @@ metadata:
 spec:
   host: reviews
   subsets:
-    - name: stable
+    - name: v1
       labels:
-        app: reviews
-    - name: canary
+        version: v1
+    - name: v2
       labels:
-        app: reviews
+        version: v2

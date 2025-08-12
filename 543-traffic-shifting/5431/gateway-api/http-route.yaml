@@ -9,13 +9,10 @@ spec:
       name: reviews
       port: 9080
   rules:
-    - matches:
-        - headers:
-            - name: end-user
-              value: admin
-      backendRefs:
-        - name: reviews-v2
-          port: 9080
     - backendRefs:
         - name: reviews-v1
           port: 9080
+          weight: 50
+        - name: reviews-v2
+          port: 9080
+          weight: 50

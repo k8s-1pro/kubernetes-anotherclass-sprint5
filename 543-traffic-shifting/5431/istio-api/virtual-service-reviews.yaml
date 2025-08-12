@@ -6,13 +6,12 @@ spec:
   hosts:
     - reviews
   http:
-    - name: primary
-      route:
+    - route:
       - destination:
           host: reviews
-          subset: stable
-        weight: 100
+          subset: v1
+        weight: 50
       - destination:
           host: reviews
-          subset: canary
-        weight: 0
+          subset: v2
+        weight: 50
