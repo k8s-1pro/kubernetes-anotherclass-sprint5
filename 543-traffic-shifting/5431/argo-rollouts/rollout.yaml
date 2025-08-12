@@ -8,6 +8,16 @@ spec:
   replicas: 1
   strategy:
     canary:
+      trafficRouting:
+        istio:
+          virtualService:
+            name: reviews
+            routes:
+              - primary
+          destinationRule:
+            name: reviews
+            canarySubsetName: canary
+            stableSubsetName: stable
       steps:
         - setWeight: 33
         - pause: {}

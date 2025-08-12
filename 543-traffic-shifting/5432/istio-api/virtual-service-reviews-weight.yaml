@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: reviews
+spec:
+  hosts:
+    - reviews
+  http:
+    - name: primary
+      route:
+      - destination:
+          host: reviews
+          subset: stable
+        weight: 100
+      - destination:
+          host: reviews
+          subset: canary
+        weight: 0
