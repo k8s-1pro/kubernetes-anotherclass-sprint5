@@ -12,16 +12,14 @@ spec:
         istio:
           virtualService:
             name: reviews-argo
-            routes:
-              - primary
           destinationRule:
             name: reviews-argo
             canarySubsetName: canary
             stableSubsetName: stable
       steps:
-        - setWeight: 33
+        - setWeight: 5
         - pause: {}
-        - setWeight: 66
+        - setWeight: 50
         - pause: { duration: 2m }
   selector:
     matchLabels:

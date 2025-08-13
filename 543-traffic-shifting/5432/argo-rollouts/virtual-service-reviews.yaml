@@ -6,8 +6,7 @@ spec:
   hosts:
     - reviews
   http:
-    - name: primary
-      route:
+    - route:
       - destination:
           host: reviews
           subset: stable
