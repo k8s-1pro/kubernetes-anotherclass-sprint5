@@ -20,7 +20,7 @@ spec:
         - setWeight: 5
         - pause: {}
         - setWeight: 50
-        - pause: { duration: 2m }
+        - pause: { duration: 1m }
   selector:
     matchLabels:
       app: reviews
