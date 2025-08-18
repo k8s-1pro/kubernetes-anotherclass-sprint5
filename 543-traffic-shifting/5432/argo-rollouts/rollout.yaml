@@ -5,9 +5,11 @@ metadata:
   labels:
     app: reviews
 spec:
-  replicas: 1
+  replicas: 2
   strategy:
     canary:
+      maxSurge: '100%'
+      maxUnavailable: 0
       trafficRouting:
         istio:
           virtualService:
