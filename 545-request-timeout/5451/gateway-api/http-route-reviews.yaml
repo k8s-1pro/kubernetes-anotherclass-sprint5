@@ -1,0 +1,16 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: reviews-request-timeout
+spec:
+  parentRefs:
+    - group: ""
+      kind: Service
+      name: reviews
+      port: 9080
+  rules:
+    - backendRefs:
+        - name: reviews-v2
+          port: 9080
+      timeouts:
+        request: 500ms

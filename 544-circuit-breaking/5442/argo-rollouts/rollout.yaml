@@ -1,0 +1,54 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: reviews-subset
+  labels:
+    app: reviews
+spec:
+  replicas: 2
+  strategy:
+    canary:
+      maxSurge: '100%'
+      maxUnavailable: 0
+      trafficRouting:
+        istio:
+          virtualService:
+            name: reviews-argo
+          destinationRule:
+            name: reviews-argo
+            canarySubsetName: canary
+            stableSubsetName: stable
+      steps:
+        - setWeight: 5
+        - pause: {}
+        - setWeight: 50
+        - pause: { duration: 1m }
+  selector:
+    matchLabels:
+      app: reviews
+  template:
+    metadata:
+      labels:
+        app: reviews
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-reviews
+      containers:
+        - name: reviews
+          image: docker.io/istio/examples-bookinfo-reviews-v1:1.20.3
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: LOG_DIR
+              value: "/tmp/logs"
+          ports:
+            - containerPort: 9080
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+            - name: wlp-output
+              mountPath: /opt/ibm/wlp/output
+      volumes:
+        - name: wlp-output
+          emptyDir: {}
+        - name: tmp
+          emptyDir: {}
