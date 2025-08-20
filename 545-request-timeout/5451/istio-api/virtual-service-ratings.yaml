@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1
 kind: VirtualService
 metadata:
-  name: reviews-request-timeout
+  name: ratings-request-timeout
 spec:
   hosts:
     - ratings
