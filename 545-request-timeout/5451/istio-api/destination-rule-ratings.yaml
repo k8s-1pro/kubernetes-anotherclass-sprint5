@@ -8,3 +8,14 @@ spec:
     - name: v1
       labels:
         version: v1
+---
+apiVersion: networking.istio.io/v1
+kind: DestinationRule
+metadata:
+  name: reviews
+spec:
+  host: reviews
+  subsets:
+    - name: v2
+      labels:
+        version: v2
