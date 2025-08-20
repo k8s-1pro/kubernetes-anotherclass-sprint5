@@ -10,4 +10,4 @@ spec:
         - destination:
             host: ratings
             subset: v1
-      timeout: 2.5s
+      timeout: 2s
