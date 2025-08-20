@@ -7,9 +7,9 @@ spec:
     - reviews
   http:
     - match:
-        - headers:
-            end-user:
-              exact: admin
+      - headers:
+          end-user:
+            exact: admin
     - route:
       - destination:
           host: reviews
