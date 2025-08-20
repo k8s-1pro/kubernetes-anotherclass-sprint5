@@ -7,9 +7,9 @@ spec:
     - ratings
   http:
     - match:
-        - headers:
-            end-user:
-              exact: admin
+      - headers:
+          end-user:
+            exact: admin
       fault:
         abort:
           percentage:
