@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: reviews-mirroring
+spec:
+  hosts:
+    - reviews
+  http:
+    - route:
+      - destination:
+          host: reviews
+          subset: v1
+        weight: 100
+      mirror:
+        host: reviews
+        subset: v2
+      mirrorPercentage:
+        value: 100.0
