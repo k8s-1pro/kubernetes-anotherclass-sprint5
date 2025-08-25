@@ -19,8 +19,7 @@ spec:
         idleTimeout: 1m
         maxRequestsPerConnection: 0
         useClientProtocol: false
-        h2UpgradePolicy:
-          upgrade: true
+        h2UpgradePolicy: UPGRADE
     outlierDetection:
       consecutive5xxErrors: 20
       splitExternalLocalOriginErrors: true
@@ -34,7 +33,8 @@ spec:
       simple: ROUND_ROBIN
       warmup:
         duration: 60s
-        minimumWeight: 10
+        minimumPercent: 10
+        aggression: 1.0
   subsets:
     - name: v1
       labels:
