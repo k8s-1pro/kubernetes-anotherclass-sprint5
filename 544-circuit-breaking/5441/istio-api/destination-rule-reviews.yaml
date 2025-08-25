@@ -10,14 +10,14 @@ spec:
         maxConnections: 100
         connectTimeout: 1s
         idleTimeout: 1m
-        maxConnectionDuration: 0
+        maxConnectionDuration: 0s
       http:
         http1MaxPendingRequests: 1000
         http2MaxRequests: 2000
         maxConcurrentStreams: 1000
         maxRetries: 2
         idleTimeout: 1m
-        maxRequestsPerConnection: 0
+        maxRequestsPerConnection: 0s
         useClientProtocol: false
         h2UpgradePolicy: UPGRADE
     outlierDetection:
