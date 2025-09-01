@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1
 kind: VirtualService
 metadata:
-  name: reviews-loadbalancer
+  name: reviews
 spec:
   hosts:
     - reviews
@@ -11,7 +11,3 @@ spec:
           host: reviews
           subset: v1
         weight: 100
-      - destination:
-          host: reviews
-          subset: v2
-        weight: 0
