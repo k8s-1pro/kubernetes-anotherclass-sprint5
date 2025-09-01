@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: reviews-loadbalancer
+spec:
+  host: reviews
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN
+      warmup:
+        duration: 60s
+        minimumPercent: 10
+        aggression: 1.0
+  subsets:
+    - name: v1
+      labels:
+        version: v1
+    - name: v2
+      labels:
+        version: v2

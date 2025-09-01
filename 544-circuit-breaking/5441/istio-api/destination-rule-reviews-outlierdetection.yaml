@@ -1,34 +1,26 @@
 apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
-  name: reviews
+  name: reviews-outlierdetection
 spec:
   host: reviews
   trafficPolicy:
     connectionPool:
       tcp:
-        maxConnections: 100
-        connectTimeout: 1s
-        idleTimeout: 1m
-        maxConnectionDuration:
+        connectTimeout: 3s
+        idleTimeout: 30m
       http:
         http1MaxPendingRequests: 1000
-        http2MaxRequests: 2000
+        http2MaxRequests: 3000
         maxConcurrentStreams: 1000
-        maxRetries: 2
-        idleTimeout: 1m
-        maxRequestsPerConnection: 0
-        useClientProtocol: false
-        h2UpgradePolicy: UPGRADE
+        maxRetries: 10
+        idleTimeout: 30m
     outlierDetection:
-      consecutive5xxErrors: 20
+      consecutive5xxErrors: 0
+      consecutiveGatewayErrors: 5
       splitExternalLocalOriginErrors: true
       consecutiveLocalOriginFailures: 5
-      consecutiveGatewayErrors: 0
-      interval: 10s
-      baseEjectionTime: 30s
-      maxEjectionPercent: 10
-      minHealthPercent: 50
+      minHealthPercent: 20
     loadBalancer:
       simple: ROUND_ROBIN
       warmup:
@@ -39,3 +31,6 @@ spec:
     - name: v1
       labels:
         version: v1
+    - name: v2
+      labels:
+        version: v2
