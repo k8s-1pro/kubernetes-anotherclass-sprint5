@@ -8,8 +8,8 @@ spec:
 #    loadBalancer:
 #      simple: ROUND_ROBIN
 #      warmup:
-#        duration: 60s
-#        minimumPercent: 10
+#        duration: 120s
+#        minimumPercent: 5
 #        aggression: 1.0
   subsets:
     - name: v1

@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: anotherclass-544
+  name: core-5441
+  labels:
+    part-of: k8s-anotherclass
+    component: backend-server
+    name: core
+    instance: core-5441
+    version: 5.0.0
+    managed-by: kubectl
+spec:
+  selector:
+    matchLabels:
+      part-of: k8s-anotherclass
+      component: backend-server
+      name: core
+      instance: core-5441
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        part-of: k8s-anotherclass
+        component: backend-server
+        name: core
+        instance: core-5441
+        version: 5.0.0
+    spec:
+      containers:
+        - name: core-4351
+          # 1pro는 본인의 dockerhub username으로 변경해 주세요.
+          image: 1pro/api-tester:5.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: http
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "100Mi"
+            limits:
+              cpu: "100m"
+              memory: "200Mi"
+          envFrom:
+            - configMapRef:
+                name: core-5441-properties
+          env:
+            - name: downward_env_pod-name
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          startupProbe:
+            httpGet:
+              path: "/startup"
+              port: 8080
+            periodSeconds: 5
+            failureThreshold: 24
+          readinessProbe:
+            httpGet:
+              path: "/readiness"
+              port: 8080
+            periodSeconds: 10
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: "/liveness"
+              port: 8080
+            periodSeconds: 10
+            failureThreshold: 3
+          volumeMounts:
+            - name: secret-datasource
+              mountPath: /usr/src/myapp/datasource
+      volumes:
+        - name: secret-datasource
+          secret:
+            secretName: api-tester-5441-postgresql

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: anotherclass-544
+  name: core-5441
+  labels:
+    part-of: k8s-anotherclass
+    component: backend-server
+    name: core
+    instance: core-5441
+    version: 5.0.0
+    managed-by: kubectl
+spec:
+  selector:
+    part-of: k8s-anotherclass
+    component: backend-server
+    name: core
+    instance: core-5441
+  ports:
+    - port: 80
+      nodePort: 30541
+      targetPort: http
+  type: NodePort
