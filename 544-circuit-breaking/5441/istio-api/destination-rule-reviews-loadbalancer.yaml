@@ -4,13 +4,13 @@ metadata:
   name: reviews-loadbalancer
 spec:
   host: reviews
-  trafficPolicy:
-    loadBalancer:
-      simple: ROUND_ROBIN
-      warmup:
-        duration: 60s
-        minimumPercent: 10
-        aggression: 1.0
+#  trafficPolicy:
+#    loadBalancer:
+#      simple: ROUND_ROBIN
+#      warmup:
+#        duration: 60s
+#        minimumPercent: 10
+#        aggression: 1.0
   subsets:
     - name: v1
       labels:
