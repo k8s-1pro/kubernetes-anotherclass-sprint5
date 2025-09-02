@@ -1,6 +1,7 @@
 apiVersion: networking.istio.io/v1
 kind: VirtualService
 metadata:
+  namespace: anotherclass-544
   name: cust-5441
 spec:
   hosts:
