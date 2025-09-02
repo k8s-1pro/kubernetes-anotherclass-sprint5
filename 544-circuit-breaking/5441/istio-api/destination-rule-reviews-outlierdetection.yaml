@@ -16,7 +16,7 @@ spec:
         maxRetries: 10
         idleTimeout: 30m
     outlierDetection:
-      consecutive5xxErrors: 0
+      consecutive5xxErrors: 5
       consecutiveGatewayErrors: 5
       splitExternalLocalOriginErrors: true
       consecutiveLocalOriginFailures: 5
