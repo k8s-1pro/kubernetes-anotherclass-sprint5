@@ -1,9 +1,9 @@
 apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
-  name: reviews-loadbalancer
+  name: cust-5441-loadbalancer
 spec:
-  host: reviews
+  host: cust-5441
 #  trafficPolicy:
 #    loadBalancer:
 #      simple: ROUND_ROBIN
@@ -12,6 +12,6 @@ spec:
 #        minimumPercent: 5
 #        aggression: 1.0
   subsets:
-    - name: v1
+    - name: cust
       labels:
-        version: v1
+        name: cust

@@ -1,9 +1,9 @@
 apiVersion: networking.istio.io/v1beta1
 kind: DestinationRule
 metadata:
-  name: reviews-outlierdetection
+  name: cust-5441-outlierdetection
 spec:
-  host: reviews
+  host: cust-5441
   trafficPolicy:
     connectionPool:
       tcp:
@@ -28,6 +28,6 @@ spec:
         minimumPercent: 10
         aggression: 1.0
   subsets:
-    - name: v1
+    - name: cust
       labels:
-        version: v1
+        name: cust

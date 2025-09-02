@@ -1,13 +1,13 @@
 apiVersion: networking.istio.io/v1
 kind: VirtualService
 metadata:
-  name: reviews
+  name: cust-5441
 spec:
   hosts:
-    - reviews
+    - cust-5441
   http:
     - route:
       - destination:
-          host: reviews
-          subset: v1
+          host: cust-5441
+          subset: cust
         weight: 100
