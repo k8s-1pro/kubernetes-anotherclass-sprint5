@@ -22,13 +22,10 @@ spec:
       splitExternalLocalOriginErrors: true
       consecutiveLocalOriginFailures: 5
       minHealthPercent: 20
-    loadBalancer:
-      simple: ROUND_ROBIN
-      warmup:
-        duration: 60s
-        minimumPercent: 10
-        aggression: 1.0
   subsets:
     - name: cust
       labels:
+        part-of: k8s-anotherclass
+        component: backend-server
         name: cust
+        instance: cust-5441
