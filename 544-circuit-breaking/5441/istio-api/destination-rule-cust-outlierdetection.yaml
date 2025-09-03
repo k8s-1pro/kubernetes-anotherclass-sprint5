@@ -6,22 +6,20 @@ metadata:
 spec:
   host: cust-5441
   trafficPolicy:
-    connectionPool:
-      tcp:
-        connectTimeout: 3s
-        idleTimeout: 30m
-      http:
-        http1MaxPendingRequests: 1000
-        http2MaxRequests: 3000
-        maxConcurrentStreams: 1000
-        maxRetries: 10
-        idleTimeout: 30m
+#    connectionPool:
+#      tcp:
+#        connectTimeout: 3s
+#        idleTimeout: 30m
+#      http:
+#        http1MaxPendingRequests: 1000
+#        http2MaxRequests: 3000
+#        maxConcurrentStreams: 1000
+#        maxRetries: 10
+#        idleTimeout: 30m
     outlierDetection:
-      consecutive5xxErrors: 5
-      consecutiveGatewayErrors: 5
-      splitExternalLocalOriginErrors: true
-      consecutiveLocalOriginFailures: 5
-      minHealthPercent: 20
+      consecutive5xxErrors: 3
+      consecutiveGatewayErrors: 3
+      maxEjectionPercent: 99
   subsets:
     - name: cust
       labels:
