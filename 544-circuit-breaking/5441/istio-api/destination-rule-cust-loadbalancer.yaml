@@ -5,17 +5,15 @@ metadata:
   name: cust-5441-loadbalancer
 spec:
   host: cust-5441
-#  trafficPolicy:
-#    loadBalancer:
-#      simple: ROUND_ROBIN
-#      warmup:
-#        duration: 120s
-#        minimumPercent: 5
-#        aggression: 1.0
+  trafficPolicy:
+    loadBalancer:
+      simple: ROUND_ROBIN
+      warmup:
+        duration: 120s
+        minimumPercent: 5
+        aggression: 1.0
   subsets:
     - name: cust
       labels:
-        part-of: k8s-anotherclass
-        component: backend-server
         name: cust
         instance: cust-5441

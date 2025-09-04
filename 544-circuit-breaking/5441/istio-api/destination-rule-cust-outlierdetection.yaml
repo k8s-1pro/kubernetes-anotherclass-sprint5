@@ -23,7 +23,5 @@ spec:
   subsets:
     - name: cust
       labels:
-        part-of: k8s-anotherclass
-        component: backend-server
         name: cust
         instance: cust-5441
