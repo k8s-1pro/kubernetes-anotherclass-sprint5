@@ -55,14 +55,6 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
-            - name: downward_env_node-name
-              valueFrom:
-                fieldRef:
-                  fieldPath: spec.nodeName
-            - name: downward_env_pod-ip
-              valueFrom:
-                fieldRef:
-                  fieldPath: status.podIP
           startupProbe:
             httpGet:
               path: "/startup"
@@ -84,18 +76,7 @@ spec:
           volumeMounts:
             - name: secret-datasource
               mountPath: /usr/src/myapp/datasource
-            - name: downward-api-pod-info
-              mountPath: /usr/src/myapp/downward-api
       volumes:
         - name: secret-datasource
           secret:
             secretName: api-tester-5441-postgresql
-        - name: downward-api-pod-info
-          downwardAPI:
-            items:
-              - path: "metadata_labels"
-                fieldRef:
-                  fieldPath: metadata.labels
-              - path: "metadata_annotations"
-                fieldRef:
-                  fieldPath: metadata.annotations
