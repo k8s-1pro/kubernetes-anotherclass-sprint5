@@ -17,9 +17,9 @@ spec:
 #        maxRetries: 10
 #        idleTimeout: 30m
     outlierDetection:
-      consecutive5xxErrors: 3
-      consecutiveGatewayErrors: 3
-      maxEjectionPercent: 99
+      consecutive5xxErrors: 0
+      consecutiveGatewayErrors: 5
+      maxEjectionPercent: 20
   subsets:
     - name: cust
       labels:
