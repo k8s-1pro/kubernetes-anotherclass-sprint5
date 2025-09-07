@@ -7,7 +7,7 @@ spec:
   host: cust-5441
   trafficPolicy:
     loadBalancer:
-      simple: ROUND_ROBIN
+      simple: LEAST_REQUEST
       warmup:
         duration: 120s
         minimumPercent: 5
