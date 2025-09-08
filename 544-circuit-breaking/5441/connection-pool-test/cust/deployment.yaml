@@ -43,10 +43,10 @@ spec:
           resources:
             requests:
               cpu: "50m"
-              memory: "150Mi"
+              memory: "50Mi"
             limits:
-              cpu: "100m"
-              memory: "150Mi"
+              cpu: "200m"
+              memory: "200Mi"
           envFrom:
             - configMapRef:
                 name: cust-5441-properties
