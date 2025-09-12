@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: bookinfo-cert
+  namespace: cert-manager
+spec:
+  isCA: true
+  secretName: bookinfo-cert-secret
+  issuerRef:
+    name: selfsigned-issuer
+    kind: ClusterIssuer
+  commonName: myapp.bookstore.com
+  dnsNames:
+    - myapp.bookstore.com
