@@ -10,14 +10,12 @@ spec:
         number: 80
         name: http
         protocol: HTTP
-        nodePort: 30011
       hosts:
         - "*"
     - port:
         number: 443
         name: https
         protocol: HTTPS
-        nodePort: 30043
       hosts:
         - "*"
       tls:
