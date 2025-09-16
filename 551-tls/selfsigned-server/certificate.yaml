@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: bookinfo-cert
+  namespace: istio-system
+spec:
+  isCA: true
+  secretName: cert-selfsigned-server
+  commonName: self.books.com
+  dnsNames:
+    - self.books.com
+  duration: 8760h                      # 인증서 유효기간 (1년)
+  renewBefore: 72h                     # 만료 3일 전 자동 갱신
+  privateKey:
+    algorithm: EC                       # TLS1.3-ECHDE방식
+    size: 256                           # prime256v1 곡선
+  issuerRef:
+    name: selfsigned-server
+    kind: ClusterIssuer
