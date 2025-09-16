@@ -15,4 +15,4 @@ spec:
     size: 256
   issuerRef:
     name: selfsigned-ca
-    kind: Certificate
+    kind: Issuer
