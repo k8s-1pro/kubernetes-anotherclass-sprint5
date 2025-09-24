@@ -4,4 +4,4 @@ metadata:
   name: default-mtls
 spec:
   mtls:
-    mode: STRICT
+    mode: DISABLE
