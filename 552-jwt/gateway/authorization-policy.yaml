@@ -7,11 +7,11 @@ spec:
   selector:
     matchLabels:
       istio: ingressgateway
-  action: DENY
+  action: ALLOW
   rules:
     - from:
-        - source:
-            notRequestPrincipals: ["*"]
-      to:
-        - operation:
-            notPaths: ["/login"]  # 이 경로는 예외
+      - source:
+          requestPrincipals: ["*"]
+#      to:
+#        - operation:
+#            notPaths: ["/login"]  # 이 경로는 예외
