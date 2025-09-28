@@ -1,7 +1,7 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: jwt-authz
+  name: gateway-jwt-signature
   namespace: istio-system
 spec:
   selector:
@@ -12,6 +12,6 @@ spec:
     - from:
         - source:
             notRequestPrincipals: ["*"]  # JWT 없는 요청 거부
-      to:
-        - operation:
-            notPaths: ["/auth/token", "/auth/login"]  # 이 경로는 예외
+#      to:
+#        - operation:
+#            notPaths: ["/auth/login"]  # 이 경로는 예외
