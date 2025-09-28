@@ -11,7 +11,7 @@ spec:
   rules:
     - from:
         - source:
-            notRequestPrincipals: ["*"]  # JWT 없는 요청 거부
-#      to:
-#        - operation:
-#            notPaths: ["/auth/login"]  # 이 경로는 예외
+            notRequestPrincipals: ["*"]
+      to:
+        - operation:
+            notPaths: ["/login"]  # 이 경로는 예외
