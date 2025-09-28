@@ -1,7 +1,7 @@
 apiVersion: security.istio.io/v1beta1
 kind: RequestAuthentication
 metadata:
-  name: jwt-auth
+  name: gateway-jwt-signature
   namespace: istio-system
 spec:
   selector:
@@ -9,4 +9,17 @@ spec:
       istio: ingressgateway
   jwtRules:
     - issuer: "1pro"
+      jwks: |
+        {
+          "keys": [
+            {
+              "kty": "RSA",
+              "e": "AQAB",
+              "n": "xR2nYfn0xyC7QrFUviFo46X6wo2tahskz49lzXq9muNkhs3zfEswWCjLjwKAubgUTsq5BoXrstJSwbujBO2yERHA8X-a1kZknMCJnVZLKNkMHeFAND17fJMGkiiFMrxu3gjtDnk5rOAMga3SzptobnkkOy92Jz0P34uj58RQ4evblZAY6yVjDLZkiD5a_lbRim6S4cVRQFyvSWmsYtj6wabn1AzRSfDwAOSnpbjg7J7cUbYd6nqMIoF5DHmmA0ZD23_OiggSxWFRK2UBsHNdvuzarxxG0CB_HXO0HB1uKLHjiVLqQaPFrDSQDd_1r8ef4Q3vgjJPHrC7sf_WgukY",
+              "alg": "RS256",
+              "use": "sig",
+              "kid": "1pro-key"
+            }
+          ]
+        }
       jwksUri: "https://raw.githubusercontent.com/k8s-1pro/kubernetes-anotherclass-sprint5/refs/heads/main/552-jwt/secret-key/public.key"
