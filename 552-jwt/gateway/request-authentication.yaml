@@ -8,5 +8,5 @@ spec:
     matchLabels:
       app: myapp
   jwtRules:
-    - issuer: "https://auth.books.com"
-      jwksUri: "file:///etc/certs/public.key"
+    - issuer: "https://self.books.com"
+      jwksUri: "https://raw.githubusercontent.com/k8s-1pro/kubernetes-anotherclass-sprint5/refs/heads/main/552-jwt/secret-key/public.key"
