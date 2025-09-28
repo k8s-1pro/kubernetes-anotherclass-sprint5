@@ -9,4 +9,16 @@ spec:
       istio: ingressgateway
   jwtRules:
     - issuer: "1pro"
-      jwksUri: "https://raw.githubusercontent.com/k8s-1pro/kubernetes-anotherclass-sprint5/refs/heads/main/552-jwt/secret-key/jwks.json"
+      jwks: |
+        {
+          "keys":[
+            {
+              "kty":"RSA",
+              "n":"AK-mW1IFr5TUrpBB6DuRWkiwrinW5OfyWyDlie-RuV7MmyMaTFESqitnSCx3H5GrMsBjLiqNz-TUvWAcNcr0FXGavN0JJ7__8VN6mlgxy67gsOyAQoEkOO0cvw-rk7UBI8PFHmwHwr_ejQF--sLnVfmi_3CBkGNlY1gZYphUI9Gag7EqFOaDXcA5-DEcHye7IrQEB79Dy2lOKjfxkgeRVIarPcz-iAPkFYSINGSAaeiupG6xy1UwZH0LrATuVQOq1AJYUHJsIwodKdm2ExrTFLDLtA8ocXiC1zQqHqGRCEPPK_ciClJmAKVo167XDS3FHn1djyhGhYE_Gpb9WB0KnpU",
+              "e":"AQAB",
+              "alg":"RS256",
+              "use":"sig",
+              "kid":"key01"
+            }
+          ]
+        }
