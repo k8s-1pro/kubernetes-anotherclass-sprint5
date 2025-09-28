@@ -2,11 +2,11 @@ apiVersion: security.istio.io/v1beta1
 kind: RequestAuthentication
 metadata:
   name: jwt-auth
-  namespace: default
+  namespace: istio-system
 spec:
   selector:
     matchLabels:
-      app: myapp
+      istio: ingressgateway
   jwtRules:
-    - issuer: "https://self.books.com"
+    - issuer: "1pro"
       jwksUri: "https://raw.githubusercontent.com/k8s-1pro/kubernetes-anotherclass-sprint5/refs/heads/main/552-jwt/secret-key/public.key"
