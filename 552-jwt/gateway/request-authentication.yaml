@@ -1,0 +1,12 @@
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: jwt-auth
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  jwtRules:
+    - issuer: "https://auth.books.com"
+      jwksUri: "file:///etc/certs/public.key"
