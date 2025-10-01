@@ -1,17 +1,14 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: gateway-jwt-signature
+  name: gateway-jwt
   namespace: istio-system
 spec:
   selector:
     matchLabels:
       istio: ingressgateway
-  action: ALLOW
+  action: DENY
   rules:
-    - from:
-      - source:
-          requestPrincipals: ["*"]
-#      to:
-#        - operation:
-#            notPaths: ["/login"]  # 이 경로는 예외
+    - when:
+        - key: request.auth.claims[iss]
+          notValues: ["books-auth"]
