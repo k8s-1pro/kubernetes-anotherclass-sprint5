@@ -7,8 +7,8 @@ spec:
   selector:
     matchLabels:
       istio: ingressgateway
-  action: DENY
+  action: ALLOW
   rules:
-    - when:
-        - key: request.auth.claims[iss]
-          notValues: ["books-auth"]
+    - from:
+        - source:
+            requestPrincipals: ["*"]
