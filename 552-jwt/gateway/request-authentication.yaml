@@ -11,14 +11,14 @@ spec:
     - issuer: "books-auth"
       jwks: |
         {
-        "keys": [
-          {
-            "kty": "RSA",
-            "alg": "RS256",
-            "use": "sig",
-            "kid": "books-key",
-            "n": "ANlKFO9fS0p4JyGo505kSNevCUiY_S36zprcDgkVoOggi5l_QZ3F08H3QLWV4BaLnw5DktRFJu8EbEwAvymRkNj5vet077GnlHnpgzIh1lgvXyBe_iVxH52_nP9mhoj0J62EntUpQIHIuMsngx0vjmbWJ5a653Oib9-7bya_WWVSJNaavkeNDk7buR1YWa1lETY7hlYpxPKhRfVeuceZbAPHc0L-J9gQR3POyY2V39vg-Pp_FGdLiImHThXZ9NqId6zAOQCEz1HKmj3kSUPDFJ7d1S53TNtku0HdaUgfGzKWKc64FMpyIPlh3JclzlibcN2rZDhb4xNUmk_9xVphkF0",
-            "e": "AQAB"
-          }
-        ]
-      }
+          "keys": [
+            {
+              "kty": "RSA",
+              "alg": "RS256",
+              "use": "sig",
+              "kid": "books-key",
+              "n": "ANlKFO9fS0p4JyGo505kSNevCUiY_S36zprcDgkVoOggi5l_QZ3F08H3QLWV4BaLnw5DktRFJu8EbEwAvymRkNj5vet077GnlHnpgzIh1lgvXyBe_iVxH52_nP9mhoj0J62EntUpQIHIuMsngx0vjmbWJ5a653Oib9-7bya_WWVSJNaavkeNDk7buR1YWa1lETY7hlYpxPKhRfVeuceZbAPHc0L-J9gQR3POyY2V39vg-Pp_FGdLiImHThXZ9NqId6zAOQCEz1HKmj3kSUPDFJ7d1S53TNtku0HdaUgfGzKWKc64FMpyIPlh3JclzlibcN2rZDhb4xNUmk_9xVphkF0",
+              "e": "AQAB"
+            }
+          ]
+        }
