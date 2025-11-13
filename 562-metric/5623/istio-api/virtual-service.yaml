@@ -7,10 +7,10 @@ spec:
     - details
   http:
     - fault:
-        delay:
+        abort:
           percentage:
             value: 100
-          fixedDelay: 2s
+          httpStatus: 503
       route:
         - destination:
             host: details
