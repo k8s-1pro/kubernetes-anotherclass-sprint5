@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: details
+spec:
+  hosts:
+    - details
+  http:
+    - fault:
+        abort:
+          percentage:
+            value: 100
+          httpStatus: 503
+      route:
+        - destination:
+            host: details
+            subset: v1
+    - route:
+        - destination:
+            host: details
+            subset: v1
